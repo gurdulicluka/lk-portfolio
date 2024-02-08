@@ -1,0 +1,103 @@
+{
+  "components": [
+    {
+      "name": "feature",
+      "display_name": null,
+      "created_at": "2024-02-07T18:50:36.533Z",
+      "updated_at": "2024-02-07T20:43:58.970Z",
+      "id": 5305572,
+      "schema": {
+        "name": {
+          "type": "text",
+          "display_name": ""
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "feature",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "grid",
+      "display_name": null,
+      "created_at": "2024-02-07T18:50:36.518Z",
+      "updated_at": "2024-02-07T18:50:36.518Z",
+      "id": 5305571,
+      "schema": {
+        "columns": {
+          "type": "bloks"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "grid",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "page",
+      "display_name": null,
+      "created_at": "2024-02-07T18:50:36.483Z",
+      "updated_at": "2024-02-07T18:50:36.483Z",
+      "id": 5305569,
+      "schema": {
+        "body": {
+          "type": "bloks"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "page",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "teaser",
+      "display_name": null,
+      "created_at": "2024-02-07T18:50:36.500Z",
+      "updated_at": "2024-02-07T22:00:30.043Z",
+      "id": 5305570,
+      "schema": {
+        "headline": {
+          "type": "text"
+        },
+        "age": {
+          "type": "number"
+        },
+        "href": {
+          "type": "multilink"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "teaser",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "name": "lk-portfolio-web",
   "type": "module",
   "version": "0.0.1",
@@ -7,7 +8,10 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-sb-types": "storyblok-generate-ts source=./components.274859.json target=./component-types-sb",
+    "pull-sb-components": "storyblok pull-components --space=274859",
+    "pull-generate-sb": "yarn pull-sb-components && yarn generate-sb-types"
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
@@ -28,6 +32,7 @@
     "@vitejs/plugin-basic-ssl": "^1.1.0",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.4",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "storyblok-generate-ts": "^2.0.1"
   }
 }
