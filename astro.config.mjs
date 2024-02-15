@@ -10,7 +10,6 @@ const env = loadEnv("", process.cwd(), 'STORYBLOK')
  
 // https://astro.build/config
 export default defineConfig({
-  adapter: netlify(),
   redirects: {
     '/home': '/'
   },
@@ -23,7 +22,7 @@ export default defineConfig({
       }
     }
   }),
-  integrations: [tailwind(), react(), storyblok({
+  integrations: [react(), storyblok({
     bridge: env.STORYBLOK_IS_PREVIEW === 'yes',
     accessToken: env.STORYBLOK_TOKEN ,
     components: {
@@ -33,5 +32,6 @@ export default defineConfig({
       teaser: 'storyblok/Teaser',
       image: 'storyblok/Image',
     },
-  }),]
+  },tailwind()),],
+  adapter: netlify(),
 });

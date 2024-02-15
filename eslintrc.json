@@ -1,16 +1,14 @@
 {
     "root": true,
     "ignorePatterns": ["**/*"],
-    "plugins": ["@nx"],
     "overrides": [
       {
-        "files": ["*.ts", "*.tsx"],
+        "files": ["*.ts", "*.tsx", "*.cjs", "*.mjs"],
         "parserOptions": {
           "sourceType": "module"
         },
         "plugins": ["import", "simple-import-sort"],
         "extends": [
-          "plugin:@nx/typescript",
           "eslint:recommended",
           "plugin:react/recommended",
           "plugin:@typescript-eslint/recommended",
@@ -53,30 +51,9 @@
               "namedComponents": "arrow-function",
               "unnamedComponents": "arrow-function"
             }
-          ],
-          "@nx/enforce-module-boundaries": [
-            "error",
-            {
-              "enforceBuildableLibDependency": true,
-              "allow": [],
-              "depConstraints": [
-                {
-                  "sourceTag": "*",
-                  "onlyDependOnLibsWithTags": ["*"]
-                }
-              ]
-            }
           ]
         }
       }
-    ],
-    "settings": {
-      "tailwindcss": {
-        "removeDuplicates": true,
-        "skipClassAttribute": false,
-        "callees": ["clsx", "cn"],
-        "classRegex": "^class(Name)?$"
-      }
-    }
+    ]
   }
   
