@@ -10,18 +10,20 @@ const env = loadEnv("", process.cwd(), 'STORYBLOK')
  
 // https://astro.build/config
 export default defineConfig({
-  output: process.env.PUBLIC_ENV === 'preview' ? 'server' : 'static',
-  adapter: process.env.PUBLIC_ENV === 'preview' ? netlify() : undefined,
   redirects: {
     '/home': '/'
   },
-  vite: {
-    plugins: [basicSsl()],
-    server: {
-      https: true,
-    },
-  },
+  output: env.STORYBLOK_IS_PREVIEW === 'yes' ? 'server' : 'static',
+  ...(env.STORYBLOK_ENV === 'development' && {
+    vite: {
+      plugins: [basicSsl()],
+      server: {
+        https: true
+      }
+    }
+  }),
   integrations: [tailwind(), react(), storyblok({
+    bridge: env.STORYBLOK_IS_PREVIEW === 'yes',
     accessToken: env.STORYBLOK_TOKEN ,
     components: {
       page: 'storyblok/Page',
