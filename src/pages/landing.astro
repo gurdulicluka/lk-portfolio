@@ -1,0 +1,16 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/landing", {
+  version: "draft",
+});
+
+const story = data.story;
+---
+
+<MainLayout title="Landing | LK">
+  <StoryblokComponent blok={story.content} />
+</MainLayout>

@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import netlify from '@astrojs/netlify/functions';
 import tailwind from "@astrojs/tailwind";
 
 import react from "@astrojs/react";
@@ -9,6 +10,8 @@ const env = loadEnv("", process.cwd(), 'STORYBLOK')
  
 // https://astro.build/config
 export default defineConfig({
+  output: process.env.PUBLIC_ENV === 'preview' ? 'server' : 'static',
+  adapter: process.env.PUBLIC_ENV === 'preview' ? netlify() : undefined,
   redirects: {
     '/home': '/'
   },
@@ -25,6 +28,7 @@ export default defineConfig({
       feature: 'storyblok/Feature',
       grid: 'storyblok/Grid',
       teaser: 'storyblok/Teaser',
+      image: 'storyblok/Image',
     },
   }),]
 });

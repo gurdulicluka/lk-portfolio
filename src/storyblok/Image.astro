@@ -1,0 +1,13 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import { type ImageStoryblok } from "../../component-types-sb";
+interface Props {
+  blok: ImageStoryblok;
+}
+const { blok } = Astro.props;
+---
+
+<div {...storyblokEditable(blok)}>
+  <img src={blok.image?.filename} alt="" />
+  <h1>{blok.name}</h1>
+</div>

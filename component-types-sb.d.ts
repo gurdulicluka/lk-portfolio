@@ -8,14 +8,33 @@ export interface FeatureStoryblok {
 }
 
 export interface GridStoryblok {
-  columns?: (FeatureStoryblok | GridStoryblok | PageStoryblok | TeaserStoryblok)[];
+  columns?: (FeatureStoryblok | GridStoryblok | ImageStoryblok | PageStoryblok | TeaserStoryblok)[];
   _uid: string;
   component: "grid";
   [k: string]: any;
 }
 
+export interface AssetStoryblok {
+  alt?: string;
+  copyright?: string;
+  id: number;
+  filename: string;
+  name: string;
+  title?: string;
+  focus?: string;
+  [k: string]: any;
+}
+
+export interface ImageStoryblok {
+  name?: string;
+  image?: AssetStoryblok;
+  _uid: string;
+  component: "image";
+  [k: string]: any;
+}
+
 export interface PageStoryblok {
-  body?: (FeatureStoryblok | GridStoryblok | PageStoryblok | TeaserStoryblok)[];
+  body?: (FeatureStoryblok | GridStoryblok | ImageStoryblok | PageStoryblok | TeaserStoryblok)[];
   _uid: string;
   component: "page";
   uuid?: string;

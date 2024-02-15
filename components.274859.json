@@ -48,6 +48,32 @@
       "icon": null
     },
     {
+      "name": "image",
+      "display_name": null,
+      "created_at": "2024-02-08T21:04:03.222Z",
+      "updated_at": "2024-02-08T21:04:41.984Z",
+      "id": 5313632,
+      "schema": {
+        "name": {
+          "type": "text"
+        },
+        "image": {
+          "type": "asset"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "image",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
       "name": "page",
       "display_name": null,
       "created_at": "2024-02-07T18:50:36.483Z",

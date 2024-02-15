@@ -4,7 +4,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "PUBLIC_ENV=development astro dev",
+    "build:production": "PUBLIC_ENV=production astro build",
+    "build:preview": "PUBLIC_ENV=preview astro build",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -15,6 +17,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@astrojs/netlify": "^5.1.2",
     "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
     "@storyblok/astro": "^4.0.2",
