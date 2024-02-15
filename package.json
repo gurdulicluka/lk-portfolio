@@ -4,11 +4,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "PUBLIC_ENV=development astro dev",
-    "build:production": "PUBLIC_ENV=production astro build",
-    "build:preview": "PUBLIC_ENV=preview astro build",
-    "start": "astro dev",
-    "build": "astro check && astro build",
+    "dev": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "generate-sb-types": "storyblok-generate-ts source=./components.274859.json target=./component-types-sb",

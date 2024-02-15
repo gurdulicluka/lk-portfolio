@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify/functions';
+import netlify from '@astrojs/netlify';
 import tailwind from "@astrojs/tailwind";
 
 import react from "@astrojs/react";
@@ -10,6 +10,7 @@ const env = loadEnv("", process.cwd(), 'STORYBLOK')
  
 // https://astro.build/config
 export default defineConfig({
+  adapter: netlify(),
   redirects: {
     '/home': '/'
   },

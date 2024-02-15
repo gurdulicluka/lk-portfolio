@@ -1,11 +1,12 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { useStoryblokApi } from "@storyblok/astro";
+import isPreview from "../utils/isPreview";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories/home", {
-  version: "draft",
+  version: isPreview() ? "draft" : "published",
 });
 
 const story = data.story;
