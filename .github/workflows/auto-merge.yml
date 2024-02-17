@@ -1,0 +1,22 @@
+name: Auto Merge to Preview
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  merge_to_preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Merge to preview
+        if: github.event.pull_request.merged == true
+        run: |
+          git checkout preview
+          git pull origin main
+          git push origin preview

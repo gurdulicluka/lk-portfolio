@@ -10,11 +10,8 @@ const env = loadEnv("", process.cwd(), 'STORYBLOK')
  
 // https://astro.build/config
 export default defineConfig({
-  redirects: {
-    '/home': '/'
-  },
-  output: env.STORYBLOK_IS_PREVIEW === 'yes' ? 'server' : 'static',
-  ...(env.STORYBLOK_ENV === 'development' && {
+  output: env.STORYBLOK_ENVIRONMENT === 'preview' ? 'server' : 'static',
+  ...(env.STORYBLOK_ENVIRONMENT === 'preview' && {
     vite: {
       plugins: [basicSsl()],
       server: {
@@ -23,8 +20,8 @@ export default defineConfig({
     }
   }),
   integrations: [react(), storyblok({
-    bridge: env.STORYBLOK_IS_PREVIEW === 'yes',
-    accessToken: env.STORYBLOK_TOKEN ,
+    bridge: env.STORYBLOK_ENVIRONMENT === 'preview',
+    accessToken: env.STORYBLOK_ENVIRONMENT === 'preview' ? 'tFVO5jVUoSh4127CEb10TQtt' : 'I4y4GYUpCCoBJrf9Bb4Fsgtt' ,
     components: {
       page: 'storyblok/Page',
       feature: 'storyblok/Feature',
@@ -33,5 +30,5 @@ export default defineConfig({
       image: 'storyblok/Image',
     },
   },tailwind()),],
-  adapter: netlify(),
+  adapter: env.STORYBLOK_ENVIRONMENT === 'preview' ? netlify() : undefined,
 });
