@@ -1,4 +1,4 @@
-name: Auto Merge to Preview
+name: Auto Rebase to Preview
 
 on:
   pull_request:
@@ -7,16 +7,17 @@ on:
       - main
 
 jobs:
-  merge_to_preview:
+  rebase_to_preview:
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Merge to preview
+      - name: Rebase to preview
         if: github.event.pull_request.merged == true
         run: |
           git checkout preview
           git pull origin main
-          git push origin preview
+          git rebase main
+          git push origin preview --force-with-lease
