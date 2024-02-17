@@ -1,23 +1,16 @@
-name: Auto Rebase to Preview
+name: Auto merge to preview branch
 
 on:
   pull_request:
-    types: [closed]
     branches:
-      - main
+      - develop
+    types:
+      - closed
 
 jobs:
-  rebase_to_preview:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-
-      - name: Rebase to preview
-        if: github.event.pull_request.merged == true
-        run: |
-          git checkout preview
-          git pull origin main
-          git rebase main
-          git push origin preview --force-with-lease
+    - run: |
+        echo The PR was successfully merged.
