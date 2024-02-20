@@ -1,5 +1,5 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+// import MainLayout from "../layouts/MainLayout.astro";
 import { useStoryblokApi } from "@storyblok/astro";
 import isPreview from "../utils/isPreview";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
@@ -12,6 +12,4 @@ const { data } = await storyblokApi.get("cdn/stories/home", {
 const story = data.story;
 ---
 
-<MainLayout title="Home | LK">
-  <StoryblokComponent blok={story.content} />
-</MainLayout>
+<StoryblokComponent blok={story.content} />

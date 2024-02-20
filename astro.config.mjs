@@ -24,10 +24,8 @@ export default defineConfig({
     accessToken: env.STORYBLOK_ENVIRONMENT === 'preview' ? 'tFVO5jVUoSh4127CEb10TQtt' : 'I4y4GYUpCCoBJrf9Bb4Fsgtt' ,
     components: {
       page: 'storyblok/Page',
-      feature: 'storyblok/Feature',
-      grid: 'storyblok/Grid',
-      teaser: 'storyblok/Teaser',
-      image: 'storyblok/Image',
+      carousel: 'storyblok/Carousel',
+      card: 'storyblok/Card',
     },
   },tailwind()),],
   adapter: env.STORYBLOK_ENVIRONMENT === 'preview' ? netlify() : undefined,
