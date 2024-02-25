@@ -39,12 +39,12 @@
     background-color: white;
     height: 3px;
     width: 100%;
-    transition: all 0.3s ease;
+    transition: all 600ms ease;
   }
   /* Animations */
   .menu-container {
     clip-path: circle(30px at calc(100% - 40px) 37px);
-    transition: clip-path 0.4s ease;
+    transition: clip-path 400ms ease;
   }
 
   .expanded:where(.menu-container) {
@@ -53,6 +53,8 @@
 
   .expanded .line:nth-child(2) {
     opacity: 0;
+    transform: translateX(-6px);
+    transition: all 150ms ease;
   }
 
   .expanded .line:nth-child(1) {
