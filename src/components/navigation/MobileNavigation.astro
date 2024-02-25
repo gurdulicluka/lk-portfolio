@@ -1,0 +1,69 @@
+---
+// import HamburgerIcon from "../icons/HamburgerIcon.astro";
+---
+
+<div class="md:hidden h-[100vh] z-40">
+  <button class="toggle-button p-5 right-2 top-1 text-center z-50 absolute">
+    <div class="size-[24px] grid place-items-center">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </button>
+  <div class="menu-container h-full bg-black">
+    <nav class="text-center pt-[120px]">
+      <ul class="flex flex-col gap-7 uppercase text-white">
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Playground</a></li>
+        <li><a href="/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<script>
+  const toggleButton = document.querySelector(".toggle-button");
+  const menuContainer = document.querySelector(".menu-container");
+
+  toggleButton.addEventListener("click", () => {
+    menuContainer.classList.toggle("expanded");
+    toggleButton.classList.toggle("expanded");
+  });
+</script>
+
+<style>
+  /* Hamburger button*/
+  .line {
+    border-radius: 10000px;
+    display: block;
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  /* Animations */
+  .menu-container {
+    clip-path: circle(30px at calc(100% - 40px) 37px);
+    transition: clip-path 0.4s ease;
+  }
+
+  .expanded:where(.menu-container) {
+    clip-path: circle(50vh at 50% 40px);
+  }
+
+  .expanded .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .expanded .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .expanded .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .expanded + .menu {
+    transform: translateX(0);
+  }
+</style>

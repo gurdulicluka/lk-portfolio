@@ -1,0 +1,24 @@
+---
+import MobileNavigation from "./MobileNavigation.astro";
+---
+
+<>
+  <MobileNavigation />
+  <div
+    class="2xl:text-xl hidden md:block uppercase [writing-mode:vertical-lr] [&_>*]:z-50"
+  >
+    <nav class="absolute right-[30px] top-[64px]">
+      <ul class="flex [&>*]:w-fit gap-24">
+        <li><a href="/">Home</a></li>
+        <li><a href="/playground">Playground</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <a
+      href="/"
+      class="whitespace-nowrap absolute 2xl:text-x left-[30px] rotate-180 inline-block top-[200px]"
+    >
+      Lucija Kolarić</a
+    >
+  </div>
+</>

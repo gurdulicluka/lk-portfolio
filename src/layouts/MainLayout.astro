@@ -1,33 +1,21 @@
 ---
 import Head from "./Head.astro";
-import { storyblokEditable } from "@storyblok/astro";
-import type { PageStoryblok } from "../../component-types-sb";
-import NavigationBar from "../components/navigation/NavigationBar.astro";
+import Navigation from "../components/navigation/Navigation.astro";
 
 import "../styles/global.css";
 import "../styles/fonts.css";
 
 interface Props {
-  blok: PageStoryblok;
+  title: string;
 }
 
-const { blok } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <html lang="en" class="font-poppins">
-  <Head title={blok.title} />
+  <Head title={title} />
   <body class="relative bg-main-bg">
-    <NavigationBar />
-    <main class="min-h-screen" {...storyblokEditable(blok)}>
-      <div class="h-screen">test</div>
-      <slot />
-    </main>
-    <aside
-      class="absolute 2xl:text-xl flex items-center left-0 z-50 inset-y-0 w-[100px] [writing-mode:vertical-lr]"
-    >
-      <span class="uppercase rotate-180 inline-block mt-[200px]">
-        Lucija Kolarić</span
-      >
-    </aside>
+    <Navigation />
+    <slot />
   </body>
 </html>

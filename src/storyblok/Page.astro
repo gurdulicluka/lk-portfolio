@@ -1,6 +1,6 @@
 ---
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
-import MainLayout from "../layouts/MainLayout.astro";
+import { storyblokEditable } from "@storyblok/astro";
 import type { PageStoryblok } from "../../component-types-sb";
 
 interface Props {
@@ -10,10 +10,10 @@ interface Props {
 const { blok } = Astro.props;
 ---
 
-<MainLayout blok={blok}>
+<main {...storyblokEditable(blok)}>
   {
     blok.body?.map((blok: any) => {
       return <StoryblokComponent blok={blok} />;
     })
   }
-</MainLayout>
+</main>
