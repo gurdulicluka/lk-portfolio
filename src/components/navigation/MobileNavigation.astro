@@ -1,5 +1,5 @@
 ---
-// import HamburgerIcon from "../icons/HamburgerIcon.astro";
+
 ---
 
 <div class="md:hidden h-[100vh] z-40">
@@ -25,10 +25,10 @@
   const toggleButton = document.querySelector(".toggle-button");
   const menuContainer = document.querySelector(".menu-container");
 
-  toggleButton.addEventListener("click", () => {
-    menuContainer.classList.toggle("expanded");
+  toggleButton?.addEventListener("click", () => {
+    menuContainer?.classList.toggle("expanded");
     toggleButton.classList.toggle("expanded");
-  });
+  }) ?? console.log("test");
 </script>
 
 <style>
