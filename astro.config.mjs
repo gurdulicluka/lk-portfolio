@@ -11,6 +11,7 @@ const env = loadEnv("", process.cwd(), 'STORYBLOK');
 // https://astro.build/config
 export default defineConfig({
   output: env.STORYBLOK_ENVIRONMENT === 'preview' ? 'server' : 'static',
+  adapter: env.STORYBLOK_ENVIRONMENT === 'preview' ? netlify() : undefined,
   ...(env.STORYBLOK_ENVIRONMENT === 'preview' && {
     vite: {
       plugins: [basicSsl()],
@@ -25,8 +26,8 @@ export default defineConfig({
     components: {
       page: 'storyblok/Page',
       carousel: 'storyblok/Carousel',
-      card: 'storyblok/Card'
+      card: 'storyblok/Card',
+      header: 'storyblok/Header'
     }
   }, tailwind())],
-  adapter: env.STORYBLOK_ENVIRONMENT === 'preview' ? netlify() : undefined
 });

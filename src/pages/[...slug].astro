@@ -1,33 +1,19 @@
 ---
-export const prerender = true;
-
 import { useStoryblokApi } from "@storyblok/astro";
 import isPreview from "../utils/isPreview";
 import MainLayout from "../layouts/MainLayout.astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import generateStaticPaths from "../utils/generateStaticPaths";
 
 export async function getStaticPaths() {
-  const storyblokApi = useStoryblokApi();
-
-  const { data } = await storyblokApi.get("cdn/links", {
-    version: isPreview() ? "draft" : "published",
-  });
-  let links = data.links;
-  links = Object.values(links);
-
-  return links.map((link: any) => {
-    return {
-      params: {
-        slug: link.slug === "home" ? undefined : link.slug,
-      },
-    };
-  });
+  return await generateStaticPaths();
 }
 
 const storyblokApi = useStoryblokApi();
+const params = Astro.params;
+let props = isPreview() ? params : Astro.props;
 
-const { slug } = Astro.params;
-
+const { slug } = props;
 const { data } = await storyblokApi.get(
   `cdn/stories/${slug === undefined ? "home" : slug}`,
   {

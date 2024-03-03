@@ -1,0 +1,17 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import type { HeaderStoryblok } from "../../component-types-sb";
+
+interface Props {
+  blok: HeaderStoryblok;
+}
+
+const { blok } = Astro.props;
+---
+
+<div
+  class="border-2 border-red-500 p-4 h-[500px] text-center"
+  {...storyblokEditable(blok)}
+>
+  <h1 class="text-7xl">{blok.title}</h1>
+</div>

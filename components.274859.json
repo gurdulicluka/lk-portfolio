@@ -57,6 +57,32 @@
       "icon": "block-text-img-r-l"
     },
     {
+      "name": "header",
+      "display_name": "Header",
+      "created_at": "2024-03-03T13:26:44.898Z",
+      "updated_at": "2024-03-03T13:32:45.973Z",
+      "id": 5432058,
+      "schema": {
+        "title": {
+          "type": "text",
+          "display_name": "title",
+          "key": "Title",
+          "pos": 0
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Header",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
       "name": "page",
       "display_name": null,
       "created_at": "2024-02-20T18:20:32.543Z",

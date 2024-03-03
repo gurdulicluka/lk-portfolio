@@ -21,14 +21,21 @@ export interface CardStoryblok {
 }
 
 export interface CarouselStoryblok {
-  items?: (CardStoryblok | CarouselStoryblok | PageStoryblok)[];
+  items?: (CardStoryblok | CarouselStoryblok | HeaderStoryblok | PageStoryblok)[];
   _uid: string;
   component: "carousel";
   [k: string]: any;
 }
 
+export interface HeaderStoryblok {
+  title?: string;
+  _uid: string;
+  component: "header";
+  [k: string]: any;
+}
+
 export interface PageStoryblok {
-  body?: (CardStoryblok | CarouselStoryblok | PageStoryblok)[];
+  body?: (CardStoryblok | CarouselStoryblok | HeaderStoryblok | PageStoryblok)[];
   title: string;
   _uid: string;
   component: "page";
