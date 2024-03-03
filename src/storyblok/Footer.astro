@@ -1,0 +1,51 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import type { FooterStoryblok } from "../../component-types-sb";
+import DribbbleIcon from "../components/icons/DribbbleIcon.astro";
+import InstagramIcon from "../components/icons/InstagramIcon.astro";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+
+interface Props {
+  blok: FooterStoryblok;
+}
+
+const { blok } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  {...storyblokEditable(blok)}
+  class="flex flex-col items-center justify-between gap-8 md:items-end md:flex-row py-[40px]"
+>
+  <ul
+    class="flex [&_svg]:size-[28px] items-center gap-[40px] md:gap-[20px] [&_a]:block [&_a]:p-2"
+  >
+    <li class="rounded-full">
+      <a
+        class="bg-neutral-800 rounded-full hover:bg-neutral-600 transition ease duration-200"
+        href={blok.linkedin?.url ?? ""}
+        target="_blank"><LinkedInIcon class="fill-white" /></a
+      >
+    </li>
+    <li class="rounded-full">
+      <a
+        class="bg-neutral-800 rounded-full hover:bg-neutral-600 transition ease duration-200"
+        href={blok.dribbble?.url ?? ""}
+        ><DribbbleIcon class="fill-white" target="_blank" /></a
+      >
+    </li>
+    <li class="rounded-full">
+      <a
+        class="bg-neutral-800 rounded-full hover:bg-neutral-600 transition ease duration-200"
+        href={blok.instagram?.url ?? ""}
+        ><InstagramIcon class="fill-white" target="_blank" /></a
+      >
+    </li>
+  </ul>
+
+  <span class="text-center block"
+    >Lucija Kolarić,<br class="sm:hidden" /> All rights reserved {
+      currentYear
+    }.</span
+  >
+</footer>

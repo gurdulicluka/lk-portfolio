@@ -11,9 +11,20 @@ const { blok } = Astro.props;
 ---
 
 <main {...storyblokEditable(blok)}>
-  {
-    blok.body?.map((blok: any) => {
-      return <StoryblokComponent blok={blok} />;
-    })
-  }
+  <div class="min-h-screen">
+    <!-- MAIN SECTION-->
+    {
+      blok.main?.map((blok: any) => {
+        return <StoryblokComponent blok={blok} />;
+      })
+    }
+  </div>
+  <div>
+    <!-- FOOTER SECTION -->
+    {
+      blok.footer?.map((blok: any) => {
+        return <StoryblokComponent blok={blok} />;
+      })
+    }
+  </div>
 </main>

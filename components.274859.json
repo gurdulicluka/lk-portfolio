@@ -57,6 +57,36 @@
       "icon": "block-text-img-r-l"
     },
     {
+      "name": "footer",
+      "display_name": "Footer",
+      "created_at": "2024-03-03T16:56:20.587Z",
+      "updated_at": "2024-03-03T17:13:33.035Z",
+      "id": 5432469,
+      "schema": {
+        "linkedin": {
+          "type": "multilink",
+          "allow_target_blank": false
+        },
+        "instagram": {
+          "type": "multilink"
+        },
+        "dribbble": {
+          "type": "multilink"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Footer",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
       "name": "header",
       "display_name": "Header",
       "created_at": "2024-03-03T13:26:44.898Z",
@@ -86,18 +116,27 @@
       "name": "page",
       "display_name": null,
       "created_at": "2024-02-20T18:20:32.543Z",
-      "updated_at": "2024-02-20T19:08:54.632Z",
+      "updated_at": "2024-03-03T18:32:02.364Z",
       "id": 5370251,
       "schema": {
-        "body": {
-          "type": "bloks"
-        },
         "title": {
           "type": "text",
           "required": true,
           "tooltip": true,
           "max_length": 50,
-          "description": "Title displayed in the browser tab"
+          "description": "Title displayed in the browser tab",
+          "pos": 0
+        },
+        "main": {
+          "type": "bloks",
+          "pos": 1
+        },
+        "footer": {
+          "type": "bloks",
+          "maximum": 1,
+          "pos": 2,
+          "tooltip": true,
+          "description": "Footer section of the page, will always show at least below the fold of the viewport"
         }
       },
       "image": "",
@@ -105,8 +144,18 @@
       "is_root": true,
       "preview_tmpl": null,
       "is_nestable": false,
-      "all_presets": [],
-      "preset_id": null,
+      "all_presets": [
+        {
+          "id": 2078013,
+          "name": "Default",
+          "component_id": 5370251,
+          "image": "",
+          "icon": "block-text-img-c",
+          "color": "",
+          "description": "With footer"
+        }
+      ],
+      "preset_id": 2078013,
       "real_name": "page",
       "component_group_uuid": null,
       "color": "",

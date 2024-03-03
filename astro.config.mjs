@@ -27,7 +27,8 @@ export default defineConfig({
       page: 'storyblok/Page',
       carousel: 'storyblok/Carousel',
       card: 'storyblok/Card',
-      header: 'storyblok/Header'
+      header: 'storyblok/Header',
+      footer: 'storyblok/Footer'
     }
   }, tailwind())],
 });
