@@ -1,62 +1,6 @@
 {
   "components": [
     {
-      "name": "card",
-      "display_name": null,
-      "created_at": "2024-02-20T20:51:26.488Z",
-      "updated_at": "2024-02-20T20:54:16.958Z",
-      "id": 5370623,
-      "schema": {
-        "title": {
-          "type": "text",
-          "pos": 0
-        },
-        "description": {
-          "type": "text",
-          "pos": 1
-        },
-        "image": {
-          "type": "asset",
-          "pos": 2,
-          "required": true
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "card",
-      "component_group_uuid": null,
-      "color": "#00b3b0",
-      "icon": "block-text-img-c"
-    },
-    {
-      "name": "carousel",
-      "display_name": null,
-      "created_at": "2024-02-20T20:55:13.920Z",
-      "updated_at": "2024-02-20T20:55:54.375Z",
-      "id": 5370624,
-      "schema": {
-        "items": {
-          "type": "bloks"
-        }
-      },
-      "image": null,
-      "preview_field": null,
-      "is_root": false,
-      "preview_tmpl": null,
-      "is_nestable": true,
-      "all_presets": [],
-      "preset_id": null,
-      "real_name": "carousel",
-      "component_group_uuid": null,
-      "color": null,
-      "icon": "block-text-img-r-l"
-    },
-    {
       "name": "footer",
       "display_name": "Footer",
       "created_at": "2024-03-03T16:56:20.587Z",
@@ -84,20 +28,25 @@
       "real_name": "Footer",
       "component_group_uuid": null,
       "color": null,
-      "icon": null
+      "icon": null,
+      "content_type_asset_preview": null
     },
     {
-      "name": "header",
-      "display_name": "Header",
-      "created_at": "2024-03-03T13:26:44.898Z",
-      "updated_at": "2024-03-03T13:32:45.973Z",
-      "id": 5432058,
+      "name": "Hero",
+      "display_name": "Hero",
+      "created_at": "2024-03-16T13:21:51.448Z",
+      "updated_at": "2024-03-16T15:35:55.791Z",
+      "id": 5506613,
       "schema": {
-        "title": {
+        "heading": {
           "type": "text",
-          "display_name": "title",
-          "key": "Title",
-          "pos": 0
+          "pos": 0,
+          "key": "heading"
+        },
+        "image": {
+          "type": "asset",
+          "pos": 1,
+          "key": "Image"
         }
       },
       "image": null,
@@ -107,10 +56,12 @@
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "Header",
-      "component_group_uuid": null,
+      "real_name": "Hero",
+      "component_group_uuid": "4e834d94-d3ea-490c-a1bc-f1c8b41e54de",
       "color": null,
-      "icon": null
+      "icon": null,
+      "content_type_asset_preview": null,
+      "component_group_name": "Case Studies"
     },
     {
       "name": "page",
@@ -159,7 +110,8 @@
       "real_name": "page",
       "component_group_uuid": null,
       "color": "",
-      "icon": "block-doc"
+      "icon": "block-doc",
+      "content_type_asset_preview": null
     }
   ]
 }

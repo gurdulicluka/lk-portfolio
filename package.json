@@ -9,9 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-sb-types": "storyblok-generate-ts source=./components.274859.json target=./component-types-sb",
-    "pull-sb-components": "storyblok pull-components --space=274859",
-    "pull-generate-sb": "yarn pull-sb-components && yarn generate-sb-types"
+    "gen:ts": "storyblok-generate-ts source=./components.274859.json target=./component-types-sb",
+    "gen:blok": "storyblok pull-components --space=274859",
+    "gen:all": "yarn gen:blok && yarn gen:ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",

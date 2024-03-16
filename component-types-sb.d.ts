@@ -1,32 +1,5 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
-export interface AssetStoryblok {
-  alt?: string;
-  copyright?: string;
-  id: number;
-  filename: string;
-  name: string;
-  title?: string;
-  focus?: string;
-  [k: string]: any;
-}
-
-export interface CardStoryblok {
-  title?: string;
-  description?: string;
-  image: AssetStoryblok;
-  _uid: string;
-  component: "card";
-  [k: string]: any;
-}
-
-export interface CarouselStoryblok {
-  items?: (CardStoryblok | CarouselStoryblok | FooterStoryblok | HeaderStoryblok | PageStoryblok)[];
-  _uid: string;
-  component: "carousel";
-  [k: string]: any;
-}
-
 export type MultilinkStoryblok =
   | {
       id?: string;
@@ -86,17 +59,29 @@ export interface FooterStoryblok {
   [k: string]: any;
 }
 
-export interface HeaderStoryblok {
+export interface AssetStoryblok {
+  alt?: string;
+  copyright?: string;
+  id: number;
+  filename: string;
+  name: string;
   title?: string;
+  focus?: string;
+  [k: string]: any;
+}
+
+export interface HeroStoryblok {
+  heading?: string;
+  image?: AssetStoryblok;
   _uid: string;
-  component: "header";
+  component: "Hero";
   [k: string]: any;
 }
 
 export interface PageStoryblok {
   title: string;
-  main?: (CardStoryblok | CarouselStoryblok | FooterStoryblok | HeaderStoryblok | PageStoryblok)[];
-  footer?: (CardStoryblok | CarouselStoryblok | FooterStoryblok | HeaderStoryblok | PageStoryblok)[];
+  main?: (FooterStoryblok | HeroStoryblok | PageStoryblok)[];
+  footer?: (FooterStoryblok | HeroStoryblok | PageStoryblok)[];
   _uid: string;
   component: "page";
   uuid?: string;

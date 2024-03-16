@@ -2,33 +2,48 @@
 
 ---
 
-<div class="md:hidden z-40">
-  <button class="toggle-button p-5 right-2 top-1 text-center z-50 absolute">
+<div class="menu-wrapper md:hidden z-40">
+  <button class="toggle-button p-5 right-2 top-2 text-center z-50 absolute">
     <div class="size-[24px] grid place-items-center">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
     </div>
   </button>
-  <div class="menu-container absolute bg-black left-0 right-0 h-[60vh]">
+  <div class="menu-container absolute bg-black left-0 right-0 h-[60vh] z-[40]">
     <nav class="text-center pt-[120px]">
-      <ul class="flex flex-col gap-7 uppercase text-white">
+      <ul class="menu flex flex-col gap-7 uppercase text-white">
         <li><a href="/">Home</a></li>
         <li><a href="/">Playground</a></li>
         <li><a href="/">About</a></li>
       </ul>
     </nav>
   </div>
+  <div class="menu-backdrop bg-stone-700/50 backdrop-blur-sm absolute inset-0">
+  </div>
 </div>
 
 <script>
   const toggleButton = document.querySelector(".toggle-button");
-  const menuContainer = document.querySelector(".menu-container");
+  const menuBackdrop = document.querySelector(".menu-backdrop");
+  const menuWrapper = document.querySelector(".menu-wrapper");
+  const HTMLElement = document.documentElement;
 
   toggleButton?.addEventListener("click", () => {
-    menuContainer?.classList.toggle("expanded");
-    toggleButton.classList.toggle("expanded");
-  }) ?? console.log("test");
+    menuWrapper?.classList.toggle("expanded");
+    if (HTMLElement.style.overflow !== "hidden") {
+      HTMLElement.style.overflow = "hidden";
+    } else {
+      HTMLElement.style.overflow = "unset";
+    }
+  });
+
+  menuBackdrop?.addEventListener("click", () => {
+    menuWrapper?.classList.remove("expanded");
+    if (HTMLElement.style.overflow === "hidden") {
+      HTMLElement.style.overflow = "unset";
+    }
+  });
 </script>
 
 <style>
@@ -37,18 +52,27 @@
     border-radius: 10000px;
     display: block;
     background-color: white;
-    height: 3px;
+    height: 2px;
     width: 100%;
     transition: all 600ms ease;
   }
   /* Animations */
   .menu-container {
-    clip-path: circle(30px at calc(100% - 40px) 37px);
+    clip-path: circle(26px at calc(100% - 40px) 40px);
     transition: clip-path 400ms ease;
   }
 
-  .expanded:where(.menu-container) {
+  .expanded .menu-container {
     clip-path: circle(50vh at 50% 40px);
+  }
+
+  .menu-backdrop {
+    opacity: 0;
+    transition: all 500ms ease;
+  }
+  .expanded .menu-backdrop {
+    opacity: 1;
+    transition: opacity 500ms ease;
   }
 
   .expanded .line:nth-child(2) {
@@ -65,7 +89,7 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .expanded + .menu {
-    transform: translateX(0);
+  .expanded .menu {
+    transform: translateX(10);
   }
 </style>
